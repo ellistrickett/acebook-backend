@@ -1,16 +1,44 @@
-# AceBook
+# AceBook-the-fat-controllers-backend
 
-REQUIRED INSTRUCTIONS:
+Rails API backend
 
-1. Fork this repository to `acebook-teamname` and customize
-the below**
+```
+##Signup
 
-[You can find the engineering project outline here.](https://github.com/makersacademy/course/tree/master/engineering_projects/rails)
+$ curl -H "Content-Type: application/json" -X POST -d '{"user": {"email":"email","username":"username","name":"name","password":"12345","password_confirmation":"12345"}}' http://localhost:3000/signup
 
-2. The card wall is here: <please update>
+# example responses:
+$ {"username":"username","created_at":"2020-06-07T15:56:58.721Z"}
+$ {"email":["has already been taken"],"username":["has already been taken"]}
+$ {"password":["can't be blank"]}
 
-## How to contribute to this project
-See [CONTRIBUTING.md](CONTRIBUTING.md)
+##Login
+
+$ curl -H "Content-Type: application/json" -X POST -d '{"email":"email","password":"12345"}' http://localhost:3000/login
+
+# example responses:
+$ {"auth_token":"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTE2MzEyMjF9.pUlCsEamJgr_HxQl-yFXO_PCjbQcxB1-1xVagWQBoXk"}
+$ {"error":{"user_authentication":"invalid credentials"}}
+
+##Posts
+
+curl http://localhost:3000/posts
+
+[{"id":3,"message":"hello,world!"},{"id":4,"message":"hello,again!"}]
+
+
+##New Post
+
+curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTE2OTk2NDh9.XtSAuv8VH02C96oHc5uqty01Q6Ics6KralcuoKx-hhM" -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d '{"post":{"message":"hello,world!"}}'
+
+# example responses:
+$ {"id":9,"message":"hello,world!","created_at":"2020-06-08T11:43:16.440Z","updated_at":"2020-06-08T11:43:16.440Z"}
+$ {"error":"Not Authorized"}
+
+
+
+
+```
 
 ## Quickstart
 
