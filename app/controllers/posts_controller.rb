@@ -1,23 +1,20 @@
 class PostsController < ApplicationController
-
-skip_before_action :authenticate_request, only: [:index]
-
+  skip_before_action :authenticate_request, only: [:index]
+  
   def new
     @post = Post.new
   end
 
   def create
     @post = Post.create(post_params)
+    
     respond_to do |format|
-
       if @post.save
         format.json { render json: @post }
       else
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
-
-    end
-    
+    end    
   end
 
   def index
