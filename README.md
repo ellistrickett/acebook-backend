@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/cjm106/acebook-the-fat-controllers-backend.svg?branch=master)](https://github.com/cjm106/acebook-the-fat-controllers-backend)
+[![Build Status](https://travis-ci.org/cjm106/acebook-the-fat-controllers-backend.svg?branch=master)](https://travis-ci.org/github/cjm106/acebook-the-fat-controllers-backend)
 
 # AceBook-the-fat-controllers-backend
 
