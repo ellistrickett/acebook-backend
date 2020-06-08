@@ -22,9 +22,10 @@ $ {"error":{"user_authentication":"invalid credentials"}}
 
 ##Posts
 
-curl http://localhost:3000/posts
+$ curl http://localhost:3000/posts
 
-[{"id":3,"message":"hello,world!"},{"id":4,"message":"hello,again!"}]
+# example response:
+[{"id":1,"message":"hello,world!"},{"id":2,"message":"hello,again!"}]
 
 
 ##New Post
@@ -34,8 +35,6 @@ curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTE2OTk
 # example responses:
 $ {"id":9,"message":"hello,world!","created_at":"2020-06-08T11:43:16.440Z","updated_at":"2020-06-08T11:43:16.440Z"}
 $ {"error":"Not Authorized"}
-
-
 
 
 ```
