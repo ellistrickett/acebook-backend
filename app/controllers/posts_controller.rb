@@ -19,13 +19,13 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    render json: @posts, only: [:id, :message]
+    render json: @posts
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:message)
+    params.require(:post).permit(:message).merge(user_id: current_user.id)
   end
 
 end
