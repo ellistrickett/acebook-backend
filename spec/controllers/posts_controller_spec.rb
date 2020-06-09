@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'json_helper'
 
 RSpec.describe PostsController, type: :controller do
   # describe "POST /new not logged in" do
@@ -7,12 +8,18 @@ RSpec.describe PostsController, type: :controller do
   #     expect(response).to have_http_status(401)
   #   end
   # end
-
-  # describe "POST /" do
-  #   it "responds with 200" do
-  #     post :create, params: { post: { message: "Hello, world!" } }
-  #     expect(response).to redirect_to(posts_url)
-  #   end
+# 
+#   describe "POST /" do
+#     it "responds with posts array" do
+#       post :create, params: { post: { user_id: 1, message: "Hello, world!" } }
+#       expect(JSON.parse(response.body)).to eq([ { "id" => post.id,
+#           "message" => post.message, 
+#                                               "created_at" => post.created_at.as_json, 
+#                                               "updated_at" => post.updated_at.as_json, 
+#                                               "user" => {  handle" => post.username  }])
+#     end
+#   end
+#
 
   #   it "creates a post" do
   #     post :create, params: { post: { message: "Hello, world!" } }
