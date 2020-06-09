@@ -17,12 +17,12 @@ skip_before_action :authenticate_request, only: [:index]
       end
 
     end
-    
+
   end
 
   def index
     @posts = Post.all
-    render json: @posts, only: [:id, :message]
+    render json: @posts
   end
 
   private
