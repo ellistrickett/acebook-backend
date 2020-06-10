@@ -27,19 +27,19 @@ class PostsController < ApplicationController
 
 
   def update
-   @post = Post.find(params[:id])
-   if @post.user_id = current_user.id
-     respond_to do |format|
-       if @post.update(update_params)
-         format.json { render json: @post }
-       else
-         format.json { render json: @post.errors, status: :unprocessable_entity }
-       end
-     end
-   else
-     format.json { render json: @post.errors, status: :unprocessable_entity }
-   end
- end
+    @post = Post.find(params[:id])
+      if @post.user_id == current_user.id
+        respond_to do |format|
+          if @post.update(update_params)
+            format.json { render json: @post }
+          else
+            format.json { render json: @post.errors, status: :unprocessable_entity }
+          end
+        end
+      else
+        render json: :unathorized
+      end
+  end
 
   def destroy
   end
