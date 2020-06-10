@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
   def update
    @post = Post.find(params[:id])
-   if user_id = current_user.id
+   if @post.user_id = current_user.id
      respond_to do |format|
        if @post.update(update_params)
          format.json { render json: @post }
@@ -58,7 +58,7 @@ end
 
 # eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTE4ODUyMzd9.po8TIc24gS5HL0iydycZxvn-fbWtOjg2QrT-gcdIJLQ
 
-# curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTE4ODU3MTN9.9GMUPyuTrBD4mQraThRMD0qLVzYwM5tYqfnJ6zYMa_A" -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d '{"post":{"message":"hello,world!"}}' http://localhost:3000/new
+# curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTE4ODk3ODV9.PU6M0t13XzgI23q5Go5yDc4x1FKU2CoQ4zU0TNUyTYo" -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d '{"post":{"message":"hello,world!"}}' http://localhost:3000/new
 #
 # curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTE4ODUzOTB9.208HifaTNHK2xJOtKWyjDE5z7drtiGa9puU-SWuOd_I" -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d '{"post":{"message":"hello,world!"}}' http://localhost:3000/new
 #
