@@ -39,6 +39,22 @@ $ {"id":9,"message":"hello,world!","created_at":"2020-06-08T11:43:16.440Z","upda
 $ {"error":"Not Authorized"}
 
 
+##Edit Post
+
+curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1OTE4OTgyMTh9.yqwJGbaMazOcDt2nprshe0nAkCGaIVv-hPfk3y6fNvk" -H "Content-Type: application/json" -H "Accept: application/json" -X PATCH -d '{"id":6, "post":{"message":"help!"}}' http://localhost:3000/edit
+
+# example responses:
+$ "unathorized"
+$ 'updated' response TBC
+
+##Delete Post
+curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1OTE4OTgyMTh9.yqwJGbaMazOcDt2nprshe0nAkCGaIVv-hPfk3y6fNvk" -H : application/json" -H "Accept: application/json" -X PATCH -d '{"id":1}' http://localhost:3000/delete
+
+# example responses:
+$ "unathorized"
+$ "deleted"
+
+
 ```
 
 ## Quickstart
