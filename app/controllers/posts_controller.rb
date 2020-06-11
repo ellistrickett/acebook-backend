@@ -37,7 +37,7 @@ class PostsController < ApplicationController
         end
       end
     else
-      render json: :unathorized
+      render json: :unauthorized
     end
   end
 
@@ -49,7 +49,7 @@ class PostsController < ApplicationController
         format.json { render json: :deleted }
       end
     else
-      render json: :unathorized
+      render json: :unauthorized
     end
   end
 
