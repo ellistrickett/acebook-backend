@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.json { render json: @post, only: [:username, :created_at]  }
+        format.json { render json: @post, only: [:username, :created_at] }
       else
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -25,7 +25,6 @@ class PostsController < ApplicationController
     render json: @posts
   end
 
-
   def update
     @post = Post.find(params[:id])
     if @post.user_id == current_user.id
@@ -39,6 +38,7 @@ class PostsController < ApplicationController
     else
       render json: :unauthorized
     end
+
   end
 
   def destroy
@@ -60,15 +60,7 @@ class PostsController < ApplicationController
   end
 
   def update_params
-      params.require(:post).permit(:message)
+    params.require(:post).permit(:message)
   end
 
 end
-
-# eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTE4ODUyMzd9.po8TIc24gS5HL0iydycZxvn-fbWtOjg2QrT-gcdIJLQ
-
-# curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTE4ODk3ODV9.PU6M0t13XzgI23q5Go5yDc4x1FKU2CoQ4zU0TNUyTYo" -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d '{"post":{"message":"hello,world!"}}' http://localhost:3000/new
-#
-# curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTE4ODUzOTB9.208HifaTNHK2xJOtKWyjDE5z7drtiGa9puU-SWuOd_I" -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d '{"post":{"message":"hello,world!"}}' http://localhost:3000/new
-#
-# curl -H "Content-Type: application/json" -X POST -d '{"email":"email","password":"12345"}' http://localhost:3000/login
