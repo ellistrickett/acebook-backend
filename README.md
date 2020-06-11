@@ -4,38 +4,48 @@
 
 Rails API backend
 
-```
-##Signup
+## Technologies used
 
-$ curl -H "Content-Type: application/json" -X POST -d '{"user": {"email":"email","username":"username","name":"name","password":"12345","password_confirmation":"12345"}}' http://localhost:3000/signup
+* Rails
+* Simple Command gem
+* Bcrypt gem
+* Rack-cors gem
+* JWT gem
+
+##  API Examples
+
+```
+## Signup
+
+curl -H "Content-Type: application/json" -X POST -d '{"user": {"email":"email","username":"username","name":"name","password":"12345","password_confirmation":"12345"}}' http://localhost:3000/signup
 
 # example responses:
 $ {"username":"username","created_at":"2020-06-07T15:56:58.721Z"}
 $ {"email":["has already been taken"],"username":["has already been taken"]}
 $ {"password":["can't be blank"]}
 
-##Login
+## Login
 
-$ curl -H "Content-Type: application/json" -X POST -d '{"email":"email","password":"12345"}' http://localhost:3000/login
+curl -H "Content-Type: application/json" -X POST -d '{"username":"username","password":"12345"}' http://localhost:3000/login
 
-# example responses:
-$ {"auth_token":"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTE2MzEyMjF9.pUlCsEamJgr_HxQl-yFXO_PCjbQcxB1-1xVagWQBoXk"}
+#example responses:
+$ {"auth_token":"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE1OTE5ODIwNjZ9.LIBn8pczWfLA_WCyNbuiw0qWUdj3i2OHVE4JSV2dDkQ","username":"username"}
 $ {"error":{"user_authentication":"invalid credentials"}}
 
-##Posts
+## Posts
 
-$ curl http://localhost:3000/posts
+curl http://localhost:3000/posts
 
-# example response:
-[{"id":1,"message":"hello,world!"},{"id":2,"message":"hello,again!"}]
+#example response:
+{"id":1,"user_id":1,"message":"hello, world!","created_at":"2020-06-09T16:09:03.620Z","user":{"username":"freestar92"}},{"id":2,"user_id":2,"message":"hello, mum!","created_at":"2020-06-09T16:18:32.973Z","user":{"username":"swiftactor29"}}]
 
 
-##New Post
+## New Post
 
-curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTE2OTk2NDh9.XtSAuv8VH02C96oHc5uqty01Q6Ics6KralcuoKx-hhM" -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d '{"post":{"message":"hello,world!"}}' http://localhost:3000/new
+curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE1OTE5ODIwNjZ9.LIBn8pczWfLA_WCyNbuiw0qWUdj3i2OHVE4JSV2dDkQ" -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d '{"post":{"message":"hello, world!"}}' http://localhost:3000/new
 
 # example responses:
-$ {"id":9,"message":"hello,world!","created_at":"2020-06-08T11:43:16.440Z","updated_at":"2020-06-08T11:43:16.440Z"}
+$ {"id":7,"user_id":4,"message":"hello, world!","created_at":"2020-06-11T17:16:37.800Z","user":{"username":"username"}}
 $ {"error":"Not Authorized"}
 
 
