@@ -24,7 +24,6 @@ RSpec.describe UserController, type: :controller do
         expect(response.content_type).to eq('application/json')
         user = User.last
         expect(JSON.parse(response.body)).to include({
-          # "created_at" => user.created_at,
           "username" => user.username
         })
       end
