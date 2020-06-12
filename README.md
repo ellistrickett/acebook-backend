@@ -55,7 +55,7 @@ curl http://localhost:3000/posts
 curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE1OTE5ODIwNjZ9.LIBn8pczWfLA_WCyNbuiw0qWUdj3i2OHVE4JSV2dDkQ" -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d '{"post":{"message":"hello, world!"}}' http://localhost:3000/new
 
 # example responses:
-$ {"id":7,"user_id":4,"message":"hello, world!","created_at":"2020-06-11T17:16:37.800Z","user":{"username":"username"}}
+$ {"id":7,"user_id":4,"message":"hello, world!","created_at":"2020-06-11T17:16:37.800Z","updated_at":"2020-06-11T17:16:37.800Z","user":{"username":"username"}}
 $ {"error":"Not Authorized"}
 
 ## Delete Post
@@ -65,6 +65,16 @@ curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1OTE4OTg
 # example responses:
 $ "unauthorized"
 $ "deleted"
+
+## Edit Post
+
+curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1OTE4OTgyMTh9.yqwJGbaMazOcDt2nprshe0nAkCGaIVv-hPfk3y6fNvk" -H "Content-Type: application/json" -H "Accept: application/json" -X PATCH -d '{"id":6, "post":{"message":"its my birthday!"}}' http://localhost:3000/edit
+
+# example responses:
+
+$ "unauthorized"
+$ {"user_id":3,"id":6,"message":"its my birthday!","created_at":"2020-06-12T10:52:12.115Z","updated_at":"2020-06-12T11:08:38.545Z","user":{"username":"username"}}
+
 
 ```
 
