@@ -12,15 +12,22 @@ Rails API backend for https://github.com/AndrewHulme/acebook-the-fat-controllers
 * Rack-cors gem
 * JWT gem
 
-## API Examples
+## How to Install and Run
 
-## Technologies used
+- Clone/fork repo
+- run 'bundle install'
+...
 
-* Rails
-* Simple Command gem
-* Bcrypt gem
-* Rack-cors gem
-* JWT gem
+## How to Run Tests
+
+- Run ... in the project directory
+
+## Learning Processes
+
+Go to the Github wiki to see our learning processes:
+https://github.com/AndrewHulme/acebook-the-fat-controllers/wiki
+
+
 
 ##  API Examples
 
