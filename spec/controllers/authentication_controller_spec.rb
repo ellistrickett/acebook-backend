@@ -9,19 +9,19 @@ RSpec.describe AuthenticationController, type: :controller do
 
   describe "User #authenticate" do
 
-    it 'logs in a valid user' do 
-      old_controller = @controller 
+    it 'logs in a valid user' do
+      old_controller = @controller
       @controller = UserController.new
       post :create, params: { user: user_attributes }, format: :json
       @controller = old_controller
 
-      post :authenticate, params: { email: "will@makers.com", password: "12345" }
+      post :authenticate, params: { username: "w1ll", password: "12345" }
       expect(response).to have_http_status(:success)
       expect(response.content_type).to eq('application/json')
-    end 
+    end
 
-    it 'deny an invalid user' do 
-      old_controller = @controller 
+    it 'deny an invalid user' do
+      old_controller = @controller
       @controller = UserController.new
       post :create, params: { user: user_attributes }, format: :json
       @controller = old_controller
@@ -29,10 +29,10 @@ RSpec.describe AuthenticationController, type: :controller do
       post :authenticate, params: { email: "none@makers.com", password: "12345" }
       expect(response).to have_http_status(:unauthorized)
       expect(response.content_type).to eq('application/json')
-    end 
+    end
 
-    it 'deny wrong password' do 
-      old_controller = @controller 
+    it 'deny wrong password' do
+      old_controller = @controller
       @controller = UserController.new
       post :create, params: { user: user_attributes }, format: :json
       @controller = old_controller
@@ -40,7 +40,7 @@ RSpec.describe AuthenticationController, type: :controller do
       post :authenticate, params: { email: "will@makers.com", password: "123456" }
       expect(response).to have_http_status(:unauthorized)
       expect(response.content_type).to eq('application/json')
-    end 
+    end
   end
 
 end
