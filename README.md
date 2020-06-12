@@ -58,6 +58,13 @@ curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE1OTE5ODI
 $ {"id":7,"user_id":4,"message":"hello, world!","created_at":"2020-06-11T17:16:37.800Z","user":{"username":"username"}}
 $ {"error":"Not Authorized"}
 
+## Delete Post
+
+curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1OTE4OTgyMTh9.yqwJGbaMazOcDt2nprshe0nAkCGaIVv-hPfk3y6fNvk" -H : application/json" -H "Accept: application/json" -X PATCH -d '{"id":1}' http://localhost:3000/delete
+
+# example responses:
+$ "unauthorized"
+$ "deleted"
 
 ```
 
